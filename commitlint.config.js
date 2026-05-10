@@ -4,7 +4,7 @@ export default {
 
     //Custom parser để định nghĩa format commit header
     parserPreset: {
-        parserOpt: {
+        parserOpts: {
             //Regex parse commit message
             // Format: <type>/#<scope>: <subject>
             // Ví dụ: feat/#auth: thêm chức năng đăng nhập với JWT
