@@ -7,7 +7,6 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { TCP_SERVICE, TcpConfiguration } from '@common/configuration/tcp.config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
