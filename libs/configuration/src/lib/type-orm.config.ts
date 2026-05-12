@@ -47,7 +47,7 @@ export const TypeOrmProvider = TypeOrmModule.forRootAsync({
             host: configService.get<string>('TYPEORM_CONFIG.HOST'),
             port: configService.get<number>('TYPEORM_CONFIG.PORT'),
             username: configService.get<string>('TYPEORM_CONFIG.USERNAME'),
-            password: configService.get<string>('TYPEORM_PASSWORD'),
+            password: configService.get<string>('TYPEORM_CONFIG.PASSWORD'),
             database: configService.get<string>('TYPEORM_CONFIG.DATABASE'),
             entities: [__dirname + "/../**/*.entity{.ts,.js}"],
             synchronize: true,

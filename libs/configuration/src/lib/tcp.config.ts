@@ -4,6 +4,7 @@ import { IsNotEmpty, IsObject } from "class-validator";
 
 export enum TCP_SERVICE {
     INVOICE_SERVICE = 'TCP_INVOICE_SERVICE',
+    PRODUCT_SERVICE = 'TCP_PRODUCT_SERVICE'
 }
 
 export class TcpConfiguration {
@@ -11,10 +12,14 @@ export class TcpConfiguration {
     @IsObject()
     TCP_INVOICE_SERVICE: TcpClientOptions;
 
+    @IsNotEmpty()
+    @IsObject()
+    TCP_PRODUCT_SERVICE: TcpClientOptions;
+
     constructor() {
-        Object.entries(TCP_SERVICE).forEach(([key, serviceName]) => {
-            const host = process.env[`${key}_HOST`] || 'localhost';
-            const port = parseInt(process.env[`${key}_PORT`] || '3301', 10);
+        Object.values(TCP_SERVICE).forEach((serviceName) => {
+            const host = process.env[`${serviceName}_HOST`] || 'localhost';
+            const port = parseInt(process.env[`${serviceName}_PORT`] || '3301', 10);
 
             this[serviceName] = TcpConfiguration.setValue(port, host);
         });

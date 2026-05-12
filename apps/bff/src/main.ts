@@ -7,6 +7,7 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { InvoiceModule } from './app/modules/invoice/invoice.module';
+import { ProductModule } from './app/modules/product/product.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
@@ -35,7 +36,7 @@ async function bootstrap() {
       .build();
 
     const documentFactory = SwaggerModule.createDocument(app, config, {
-      include: [InvoiceModule],
+      include: [InvoiceModule, ProductModule],
     });
     SwaggerModule.setup(`${globalPrefix}/docs`, app, documentFactory);
 
